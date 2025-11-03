@@ -35,7 +35,7 @@ const AppRoutes = () => {
       <Route path="/modelo" element={<Modelo />} />
       <Route path="/pedido" element={<Pedido />} />
       <Route path="/plano_producao" element={<PlanoProducao />} />
-      <Route path="/tarefas/:id" element={<Tarefas />} />
+      <Route path="/tarefas/:idPlano" element={<Tarefas />} />
 
       {/* Caso nenhuma rota seja encontrada */}
       <Route

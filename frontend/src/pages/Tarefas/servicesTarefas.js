@@ -1,6 +1,6 @@
 import api from "../../services/api";
 
-export const getTarefasPorPlano = async (idPlanoProducao) => {
+export const getTarefasByPlano = async (idPlanoProducao) => {
   try {
     const { data } = await api.get(`/tarefas/plano/${idPlanoProducao}`);
     return data;
