@@ -1,0 +1,74 @@
+/* Removido - conflitava com design system do index.css */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.app-layout {
+  display: flex;
+  height: 100vh;
+}
+
+.cadastro-prestador-container {
+  flex: 1;
+  padding: var(--spacing-xl);
+  overflow-y: auto;
+  transition: margin-left var(--transition-normal);
+  margin-left: 0;
+}
+
+.cadastro-prestador-container.content-pushed {
+  margin-left: 280px; /* Empurra o conteúdo para a direita quando o menu está aberto */
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-xl);
+  transition: margin-left var(--transition-normal);
+  margin-left: 0;
+  margin-top: 60px;
+}
+
+body:not(.login-page-active) .main-content.content-pushed {
+  margin-left: 280px;
+}
+
+/* Garantir que Toast notifications fiquem sempre por cima */
+.Toastify__toast-container {
+  z-index: 999999 !important;
+}
+
+.Toastify__toast {
+  z-index: 999999 !important;
+}
+
+.Toastify__toast--success {
+  z-index: 999999 !important;
+}
+
+.Toastify__toast--error {
+  z-index: 999999 !important;
+}
+
+.Toastify__toast--warning {
+  z-index: 999999 !important;
+}
+
+.Toastify__toast--info {
+  z-index: 999999 !important;
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+  .main-content.content-pushed,
+  .cadastro-prestador-container.content-pushed {
+    margin-left: 0; /* Remove margin em dispositivos móveis */
+  }
+
+  .main-content {
+    margin-top: 60px; /* Mantém espaço para TopBar */
+  }
+}

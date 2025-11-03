@@ -1,0 +1,289 @@
+/* =========================
+   Filamento Module - ATA Pattern
+   Following ATA-STYLING-PATTERNS.md
+========================= */
+
+/* Container Principal */
+.filamento-container {
+  padding: 0.5rem 1.5rem;
+  max-width: calc(100% - 2rem);
+  margin: 0;
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  min-height: calc(100vh - 80px);
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Remove fundos indesejados */
+.filamento-container
+  *:not(.table-container):not(.crud-actions):not(.empty-state-container):not(
+    .input-field
+  ):not(input):not(select):not(textarea) {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* =========================
+   Header Section
+========================= */
+.filamento-header {
+  margin: 0.75rem 0;
+  background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+  border: 1px solid #94a3b8;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  padding: 1rem 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.filamento-header:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  border-color: #cbd5e1;
+}
+
+.filamento-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.filamento-title-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.filamento-title-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f8fafc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filamento-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.filamento-subtitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* =========================
+   Stats Section
+========================= */
+.filamento-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filamento-stat-card {
+  background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.filamento-stat-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.filamento-stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #475569 0%, #334155 100%);
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filamento-stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.filamento-stat-number {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.filamento-stat-label {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  text-transform: uppercase;
+}
+
+/* =========================
+   CRUD / Search Section
+========================= */
+.filamento-search-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  background: #334155;
+  border-radius: 8px;
+  border: 1px solid #475569;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.filamento-search-wrapper {
+  flex: 1;
+  min-width: 300px;
+}
+
+.filamento-search-bar {
+  width: 100%;
+  background: #1e293b;
+  color: #f8fafc;
+  border: 2px solid #475569;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+/* =========================
+   Table Section
+========================= */
+.filamento-table-section {
+  background: #334155;
+  border-radius: 8px;
+  border: 1px solid #475569;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.filamento-table thead th {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+.filamento-table tbody tr:nth-child(even) {
+  background-color: #475569;
+}
+
+.filamento-table tbody tr:hover {
+  background-color: #64748b;
+}
+
+/* =========================
+   Empty State
+========================= */
+.filamento-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #334155;
+  border-radius: 8px;
+  border: 1px solid #475569;
+  color: #f8fafc;
+}
+
+.filamento-empty-icon {
+  font-size: 3rem;
+  color: #94a3b8;
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   Modal
+========================= */
+.filamento-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease-out;
+  z-index: 999;
+}
+
+.filamento-modal-content {
+  background: #334155;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #475569;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  animation: scaleIn 0.3s ease-out;
+  width: 90%;
+  max-width: 600px;
+}
+
+/* =========================
+   Responsividade
+========================= */
+@media (max-width: 768px) {
+  .filamento-header-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .filamento-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filamento-search-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 480px) {
+  .filamento-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   Animações
+========================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

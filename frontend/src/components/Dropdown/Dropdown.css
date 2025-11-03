@@ -1,0 +1,299 @@
+/* ===========================
+   Dropdown Component - Versão Otimizada BEM
+   Focada em Facilidade de Seleção
+=========================== */
+
+.dropdown {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Label */
+.dropdown__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #f8fafc;
+  line-height: 1.25rem;
+}
+
+.dropdown__label--required::after {
+  content: " *";
+  color: #ef4444;
+}
+
+/* Container */
+.dropdown__container {
+  position: relative;
+  width: 100%;
+}
+
+/* Botão Trigger - OTIMIZADO PARA FÁCIL CLIQUE */
+.dropdown__trigger {
+  width: 100%;
+  min-height: 48px; /* Tamanho mínimo para touch */
+  padding: 0.875rem 1rem;
+  border: 2px solid #475569;
+  border-radius: 8px;
+  background-color: #1e293b;
+  color: #f8fafc;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.dropdown__trigger:hover:not(.dropdown__trigger--disabled) {
+  border-color: #64748b;
+  background-color: #334155;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown__trigger--open,
+.dropdown__trigger:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background-color: #334155;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.dropdown__trigger--disabled {
+  background-color: #374151;
+  color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Estado de erro */
+.dropdown__container--error .dropdown__trigger {
+  border-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Valor selecionado */
+.dropdown__value {
+  flex: 1;
+  text-align: left;
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+.dropdown__trigger--selected .dropdown__value {
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+/* Seta - MAIS VISÍVEL */
+.dropdown__arrow {
+  font-size: 1.125rem;
+  color: #64748b;
+  transition: all 0.2s ease;
+  margin-left: 0.75rem;
+  font-weight: bold;
+}
+
+.dropdown__arrow--rotated {
+  transform: rotate(180deg);
+  color: #3b82f6;
+}
+
+/* Menu Dropdown - OTIMIZADO COM BACKGROUND SÓLIDO */
+.dropdown__menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background-color: #1e293b;
+  border: 2px solid #475569;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  overflow: hidden;
+  animation: dropdown-appear 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+@keyframes dropdown-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Search - OTIMIZADO PARA BUSCA RÁPIDA */
+.dropdown__search {
+  padding: 1rem;
+  border-bottom: 1px solid #475569;
+  background-color: #334155;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.dropdown__search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #1e293b;
+  border: 2px solid #475569;
+  border-radius: 6px;
+  color: #f8fafc;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.dropdown__search-input::placeholder {
+  color: #94a3b8;
+}
+
+.dropdown__search-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  background-color: #0f172a;
+}
+
+/* Info de resultados da busca */
+.dropdown__search-info {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Lista de Opções - OTIMIZADA PARA FÁCIL SELEÇÃO COM BACKGROUND SÓLIDO */
+.dropdown__options {
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: #1e293b;
+  position: relative;
+}
+
+/* Scroll suave */
+.dropdown__options::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dropdown__options::-webkit-scrollbar-track {
+  background: #334155;
+}
+
+.dropdown__options::-webkit-scrollbar-thumb {
+  background: #64748b;
+  border-radius: 4px;
+}
+
+/* Opções - BACKGROUND SÓLIDO PARA MELHOR LEGIBILIDADE */
+.dropdown__option {
+  min-height: 48px; /* Área de toque otimizada */
+  padding: 0.875rem 1rem;
+  color: #f8fafc;
+  font-size: 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+  background-color: #1e293b; /* Background sólido sempre */
+  display: flex;
+  align-items: center;
+  transition: all 0.15s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.dropdown__option:last-child {
+  border-bottom: none;
+}
+
+.dropdown__option:hover {
+  background-color: #475569; /* Background mais contrastante */
+  color: #ffffff;
+  transform: translateX(4px);
+  box-shadow: inset 4px 0 0 #3b82f6;
+}
+
+.dropdown__option--selected {
+  background-color: #3b82f6; /* Background azul sólido */
+  color: #ffffff;
+  font-weight: 600;
+  position: relative;
+  box-shadow: inset 4px 0 0 #1d4ed8;
+}
+
+.dropdown__option--selected::after {
+  content: "✓";
+  position: absolute;
+  right: 1rem;
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.dropdown__option--selected:hover {
+  background-color: #2563eb; /* Background ainda mais escuro no hover */
+  transform: none;
+  box-shadow: inset 4px 0 0 #1d4ed8;
+}
+
+/* Estado sem opções */
+.dropdown__no-options {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.875rem;
+  font-style: italic;
+  background-color: #1e293b; /* Background sólido também */
+}
+
+/* Mensagem de erro */
+.dropdown__error {
+  font-size: 0.875rem;
+  color: #ef4444;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+/* Responsividade Mobile - AINDA MAIS FÁCIL DE USAR */
+@media (max-width: 768px) {
+  .dropdown__trigger {
+    min-height: 56px;
+    padding: 1rem;
+    font-size: 1.125rem;
+  }
+
+  .dropdown__option {
+    min-height: 56px;
+    padding: 1.25rem 1rem;
+    font-size: 1.125rem;
+  }
+
+  .dropdown__value {
+    font-size: 1.125rem;
+  }
+
+  .dropdown__arrow {
+    font-size: 1.25rem;
+  }
+}
+
+/* Estados de foco para acessibilidade */
+.dropdown__trigger:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.dropdown__option:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: -2px;
+}

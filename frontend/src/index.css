@@ -1,0 +1,293 @@
+/* =========================
+   CSS Variables - Dark Mode (Padrão)
+========================= */
+:root {
+  /* Cores Primárias */
+  --primary-dark: #1a365d;
+  --primary-main: #3b82f6;
+  --primary-light: #60a5fa;
+  --primary-lighter: #93c5fd;
+  --primary-lightest: #1e3a8a;
+
+  /* Cores Neutras (modo escuro) */
+  --neutral-900: #f9fafb;
+  --neutral-800: #f3f4f6;
+  --neutral-700: #e5e7eb;
+  --neutral-600: #d1d5db;
+  --neutral-500: #9ca3af;
+  --neutral-400: #6b7280;
+  --neutral-300: #4b5563;
+  --neutral-200: #374151;
+  --neutral-100: #1f2937;
+  --neutral-50: #111827;
+
+  /* Cores de Estado */
+  --success-main: #34d399;
+  --success-light: #065f46;
+  --warning-main: #fbbf24;
+  --warning-light: #78350f;
+  --danger-main: #f87171;
+  --danger-light: #7f1d1d;
+  --info-main: #60a5fa;
+  --info-light: #1e3a8a;
+
+  /* Tipografia */
+  --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  --font-family-mono: "JetBrains Mono", source-code-pro, Menlo, Monaco, Consolas,
+    "Courier New", monospace;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Border Radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+
+  /* Espaçamentos */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Transições */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+}
+
+/* =========================
+   React Toastify - Fundo Escuro
+========================= */
+.Toastify__toast {
+  background: var(--neutral-800) !important;
+  color: var(--neutral-100) !important;
+  box-shadow: var(--shadow-lg) !important;
+  border-radius: var(--border-radius-md) !important;
+  border: 1px solid var(--neutral-700) !important;
+}
+
+.Toastify__toast--success {
+  background: var(--success-main) !important;
+  color: #ffffff !important;
+}
+
+.Toastify__toast--error {
+  background: var(--danger-main) !important;
+  color: #ffffff !important;
+}
+
+.Toastify__toast--warning {
+  background: var(--warning-main) !important;
+  color: #ffffff !important;
+}
+
+.Toastify__toast--info {
+  background: var(--info-main) !important;
+  color: #ffffff !important;
+}
+
+/* =========================
+   Reset e Configurações Base
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--neutral-900);
+  background-color: var(--neutral-50);
+  line-height: 1.6;
+}
+
+code {
+  font-family: var(--font-family-mono);
+}
+
+/* =========================
+   Scrollbar Customizada
+========================= */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-500);
+}
+
+/* =========================
+   Utilitários de Layout
+========================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-sm {
+  gap: var(--spacing-sm);
+}
+.gap-md {
+  gap: var(--spacing-md);
+}
+.gap-lg {
+  gap: var(--spacing-lg);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+/* =========================
+   Utilitários de Cores
+========================= */
+.text-primary {
+  color: var(--primary-main);
+}
+
+.text-success {
+  color: var(--success-main);
+}
+
+.text-danger {
+  color: var(--danger-main);
+}
+
+.text-warning {
+  color: var(--warning-main);
+}
+
+.bg-primary {
+  background-color: var(--primary-main);
+}
+
+.bg-success {
+  background-color: var(--success-main);
+}
+
+.bg-danger {
+  background-color: var(--danger-main);
+}
+
+/* =========================
+   Animações Globais
+========================= */
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.scale-in {
+  animation: scaleIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   Focus States Melhorados
+========================= */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary-main);
+  outline-offset: 2px;
+}
+
+/* =========================
+   Print Styles
+========================= */
+@media print {
+  * {
+    color-adjust: exact;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}

@@ -1,0 +1,148 @@
+.collapsible-card {
+  background: #334155;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  border: 1px solid #475569;
+  margin: 0.75rem 0;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.collapsible-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.collapsible-card.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1rem;
+  cursor: pointer;
+  background: #1e293b;
+  border-bottom: 1px solid #475569;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.card-header:hover {
+  background: #475569;
+}
+
+.card-header:focus-visible {
+  outline: 2px solid var(--primary-main, #2563eb);
+  outline-offset: -2px;
+}
+
+.card-header.disabled {
+  cursor: not-allowed;
+  background: #475569;
+}
+
+.card-icon-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.card-icon {
+  color: var(--primary-main, #2563eb);
+  transition: color 0.2s ease;
+}
+
+.card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin: 0;
+}
+
+.card-toggle-icon {
+  color: #cbd5e1;
+  transition: transform 0.3s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.card-toggle-icon.rotated {
+  transform: rotate(180deg);
+}
+
+.card-content {
+  background: #334155;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-content.collapsed {
+  max-height: 0;
+  padding: 0 1rem;
+}
+
+.card-content.expanded {
+  max-height: 2000px;
+  padding: 1rem;
+}
+
+.card-content-inner {
+  opacity: 1;
+  transition: opacity 0.3s ease 0.1s;
+}
+
+.card-content.collapsed .card-content-inner {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Variações de tamanho */
+.collapsible-card.size-sm {
+  margin: 0.5rem 0;
+}
+
+.collapsible-card.size-sm .card-header {
+  padding: 0.75rem 1rem;
+}
+
+.collapsible-card.size-sm .card-title {
+  font-size: 1rem;
+}
+
+.collapsible-card.size-sm .card-content.expanded {
+  padding: 1rem;
+}
+
+.collapsible-card.size-lg {
+  margin: 1.5rem 0;
+}
+
+.collapsible-card.size-lg .card-header {
+  padding: 1.25rem 1.5rem;
+}
+
+.collapsible-card.size-lg .card-title {
+  font-size: 1.25rem;
+}
+
+.collapsible-card.size-lg .card-content.expanded {
+  padding: 1.5rem;
+}
+
+/* Estados de loading */
+.collapsible-card.loading .card-header {
+  background: #475569;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}

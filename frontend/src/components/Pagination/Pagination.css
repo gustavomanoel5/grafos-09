@@ -1,0 +1,756 @@
+/* ================================
+   VARIÁVEIS DO DESIGN SYSTEM
+================================ */
+.pagination {
+  --primary-main: #2563eb;
+  --primary-dark: #1e40af;
+  --primary-light: #3b82f6;
+  --primary-surface: rgba(37, 99, 235, 0.1);
+
+  --secondary-main: #64748b;
+  --secondary-light: #94a3b8;
+  --secondary-surface: rgba(100, 116, 139, 0.1);
+
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #06b6d4;
+
+  /* Dark como padrão */
+  --surface-primary: #1e293b;
+  --surface-secondary: #334155;
+  --surface-tertiary: #475569;
+  --surface-hover: #475569;
+  --surface-active: #64748b;
+  --surface-disabled: #334155;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-disabled: #64748b;
+
+  --border-light: #475569;
+  --border-medium: #64748b;
+  --border-strong: #94a3b8;
+  --border-focus: #2563eb;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 1.5rem;
+  --spacing-2xl: 2rem;
+}
+
+/* ================================
+   CONTAINER PRINCIPAL
+================================ */
+.pagination {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: var(--spacing-xl) 0;
+}
+
+.pagination * {
+  box-sizing: border-box;
+}
+
+/* ================================
+   SEÇÃO SUPERIOR (INFO E CONTROLES)
+================================ */
+.pagination-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-lg);
+  width: 100%;
+  max-width: 1200px;
+}
+
+.pagination-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.pagination-info-text {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* ================================
+   SELETOR DE ITENS POR PÁGINA
+================================ */
+.pagination-items-per-page {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.pagination-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.pagination-select {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  background: var(--surface-primary);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-width: 70px;
+}
+
+.pagination-select:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+
+.pagination-select:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  background: var(--surface-primary);
+}
+
+.pagination-select:disabled {
+  background: var(--surface-disabled);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+  border-color: var(--border-light);
+}
+
+/* ================================
+   JUMP TO PAGE
+================================ */
+.pagination-jump {
+  display: flex;
+  align-items: center;
+}
+
+.pagination-jump-trigger {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  background: var(--surface-primary);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.pagination-jump-trigger:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.pagination-jump-trigger:disabled {
+  background: var(--surface-disabled);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+  border-color: var(--border-light);
+}
+
+.pagination-jump-input {
+  display: flex;
+  align-items: center;
+}
+
+.pagination-jump-field {
+  width: 80px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--border-focus);
+  border-radius: var(--radius-md);
+  background: var(--surface-primary);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  transition: all var(--transition-fast);
+}
+
+.pagination-jump-field:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* ================================
+   NAVEGAÇÃO PRINCIPAL
+================================ */
+.pagination-navigation {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ================================
+   BOTÕES DE NAVEGAÇÃO
+================================ */
+.pagination-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  background: var(--surface-primary);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  min-height: 40px;
+}
+
+.pagination-nav:hover:not(:disabled) {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.pagination-nav:active:not(:disabled) {
+  background: var(--surface-active);
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.pagination-nav:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.pagination-nav:disabled {
+  background: var(--surface-disabled);
+  color: var(--text-disabled);
+  border-color: var(--border-light);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.pagination-nav svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* ================================
+   NÚMEROS DAS PÁGINAS
+================================ */
+.pagination-pages {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pagination-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  background: var(--surface-primary);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.pagination-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left var(--transition-normal);
+}
+
+.pagination-page:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.pagination-page:hover:not(:disabled) {
+  background: var(--primary-surface);
+  color: var(--primary-main);
+  border-color: var(--primary-light);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.pagination-page:active:not(:disabled) {
+  background: var(--primary-main);
+  color: var(--text-inverse);
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.pagination-page:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.pagination-page:disabled {
+  background: var(--surface-disabled);
+  color: var(--text-disabled);
+  border-color: var(--border-light);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Página ativa */
+.pagination-page-active {
+  background: var(--primary-main) !important;
+  color: var(--text-inverse) !important;
+  border-color: var(--primary-main) !important;
+  font-weight: 600 !important;
+  box-shadow: var(--shadow-md) !important;
+  position: relative;
+}
+
+.pagination-page-active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--text-inverse);
+  border-radius: var(--radius-full);
+}
+
+.pagination-page-active:hover {
+  background: var(--primary-dark) !important;
+  transform: none !important;
+}
+
+/* Ellipsis */
+.pagination-ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  color: var(--text-muted);
+  font-size: var(--font-size-lg);
+  cursor: default;
+  user-select: none;
+}
+
+.pagination-ellipsis svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ================================
+   INDICADOR SIMPLES
+================================ */
+.pagination-indicator {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  margin: 0 var(--spacing-md);
+}
+
+.pagination-indicator-text {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ================================
+   TAMANHOS
+================================ */
+
+/* Compact */
+.pagination-compact {
+  margin: var(--spacing-md) 0;
+  gap: var(--spacing-md);
+}
+
+.pagination-compact .pagination-top {
+  gap: var(--spacing-md);
+}
+
+.pagination-compact .pagination-nav {
+  padding: var(--spacing-sm) var(--spacing-md);
+  min-height: 32px;
+  font-size: var(--font-size-xs);
+}
+
+.pagination-compact .pagination-page {
+  min-width: 32px;
+  height: 32px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
+}
+
+.pagination-compact .pagination-nav svg {
+  width: 14px;
+  height: 14px;
+}
+
+.pagination-compact .pagination-info-text,
+.pagination-compact .pagination-label {
+  font-size: var(--font-size-xs);
+}
+
+.pagination-compact .pagination-select,
+.pagination-compact .pagination-jump-trigger,
+.pagination-compact .pagination-jump-field {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
+}
+
+/* Large */
+.pagination-large {
+  margin: var(--spacing-2xl) 0;
+  gap: var(--spacing-xl);
+}
+
+.pagination-large .pagination-top {
+  gap: var(--spacing-xl);
+}
+
+.pagination-large .pagination-nav {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  min-height: 48px;
+  font-size: var(--font-size-base);
+}
+
+.pagination-large .pagination-page {
+  min-width: 48px;
+  height: 48px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-base);
+}
+
+.pagination-large .pagination-nav svg {
+  width: 18px;
+  height: 18px;
+}
+
+.pagination-large .pagination-info-text,
+.pagination-large .pagination-label {
+  font-size: var(--font-size-base);
+}
+
+.pagination-large .pagination-select,
+.pagination-large .pagination-jump-trigger,
+.pagination-large .pagination-jump-field {
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-base);
+}
+
+/* ================================
+   VARIANTES
+================================ */
+
+/* Minimal */
+.pagination-minimal .pagination-nav,
+.pagination-minimal .pagination-page {
+  border: none;
+  background: transparent;
+}
+
+.pagination-minimal .pagination-nav:hover:not(:disabled),
+.pagination-minimal .pagination-page:hover:not(:disabled) {
+  background: var(--surface-hover);
+}
+
+.pagination-minimal .pagination-page-active {
+  background: var(--primary-surface) !important;
+  color: var(--primary-main) !important;
+}
+
+/* Outlined */
+.pagination-outlined .pagination-nav,
+.pagination-outlined .pagination-page {
+  border-width: 2px;
+  background: transparent;
+}
+
+.pagination-outlined .pagination-nav:hover:not(:disabled),
+.pagination-outlined .pagination-page:hover:not(:disabled) {
+  background: var(--surface-hover);
+  border-color: var(--primary-main);
+}
+
+.pagination-outlined .pagination-page-active {
+  background: transparent !important;
+  color: var(--primary-main) !important;
+  border-color: var(--primary-main) !important;
+  border-width: 2px !important;
+}
+
+/* Filled */
+.pagination-filled .pagination-nav {
+  background: var(--surface-secondary);
+  border-color: var(--surface-secondary);
+}
+
+.pagination-filled .pagination-page {
+  background: var(--surface-secondary);
+  border-color: var(--surface-secondary);
+}
+
+.pagination-filled .pagination-nav:hover:not(:disabled),
+.pagination-filled .pagination-page:hover:not(:disabled) {
+  background: var(--surface-hover);
+  border-color: var(--surface-hover);
+}
+
+/* ================================
+   ESTADO DESABILITADO
+================================ */
+.pagination-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ================================
+   RESPONSIVIDADE
+================================ */
+.pagination-responsive .pagination-top {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--spacing-md);
+}
+
+.pagination-responsive .pagination-info {
+  justify-content: center;
+  text-align: center;
+}
+
+.pagination-responsive .pagination-items-per-page,
+.pagination-responsive .pagination-jump {
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .pagination-responsive .pagination-top {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-md);
+  }
+
+  .pagination-responsive .pagination-navigation {
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+  }
+
+  .pagination-responsive .pagination-nav-text {
+    display: none;
+  }
+
+  .pagination-responsive .pagination-nav {
+    min-width: 40px;
+    padding: var(--spacing-md);
+  }
+
+  .pagination-responsive .pagination-pages {
+    order: -1;
+    margin: 0 var(--spacing-md);
+  }
+
+  .pagination-responsive .pagination-page {
+    min-width: 36px;
+    height: 36px;
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .pagination-responsive .pagination-pages {
+    gap: 2px;
+  }
+
+  .pagination-responsive .pagination-page {
+    min-width: 32px;
+    height: 32px;
+    padding: var(--spacing-xs);
+    font-size: var(--font-size-xs);
+  }
+
+  .pagination-responsive .pagination-nav {
+    min-width: 36px;
+    padding: var(--spacing-sm);
+  }
+}
+
+/* ================================
+   ACESSIBILIDADE
+================================ */
+@media (prefers-reduced-motion: reduce) {
+  .pagination *,
+  .pagination *::before,
+  .pagination *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .pagination {
+    --border-light: #000000;
+    --border-medium: #000000;
+    --border-strong: #000000;
+  }
+
+  .pagination-nav,
+  .pagination-page {
+    border-width: 2px;
+  }
+
+  .pagination-page-active {
+    border-width: 3px !important;
+  }
+}
+
+/* Focus visible para melhor acessibilidade */
+.pagination-nav:focus-visible,
+.pagination-page:focus-visible,
+.pagination-select:focus-visible,
+.pagination-jump-trigger:focus-visible,
+.pagination-jump-field:focus-visible {
+  outline: 2px solid var(--primary-main);
+  outline-offset: 2px;
+}
+
+/* ================================
+   ANIMAÇÕES ESPECIAIS
+================================ */
+@keyframes pageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pagination-page {
+  animation: pageSlideIn var(--transition-normal) ease;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.pagination-page::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transform: scale(0) translate(-50%, -50%);
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.pagination-page:active::after {
+  animation: ripple 0.6s linear;
+}
+
+/* ================================
+   COMPATIBILIDADE LEGADA
+================================ */
+.pagination button {
+  /* Mantém compatibilidade com estilos antigos */
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: 1px solid var(--border-medium);
+  background: var(--surface-primary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-fast);
+  min-height: 40px;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.pagination button:disabled {
+  background: var(--surface-disabled);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+  border-color: var(--border-light);
+}

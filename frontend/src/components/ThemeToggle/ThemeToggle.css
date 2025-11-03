@@ -1,0 +1,140 @@
+/* ===========================
+   Theme Toggle Component - BEM Pattern
+=========================== */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* Variante Icon (toggle simples) */
+.theme-toggle--icon {
+  display: inline-flex;
+}
+
+/* Variante Dropdown */
+.theme-toggle--dropdown {
+  position: relative;
+}
+
+.theme-toggle--dropdown .theme-toggle__options {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: var(--spacing-xs);
+  background: white;
+  border: 1px solid var(--neutral-300);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  min-width: 120px;
+}
+
+/* Variante Inline */
+.theme-toggle--inline {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.theme-toggle--inline .theme-toggle__options {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+/* Elementos */
+.theme-toggle__title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--neutral-700);
+  white-space: nowrap;
+}
+
+.theme-toggle__options {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.theme-toggle__option {
+  transition: var(--transition-fast);
+}
+
+.theme-toggle__option--active {
+  /* Estilo já aplicado via variant="primary" */
+}
+
+.theme-toggle__label {
+  font-size: 0.875rem;
+  margin-left: var(--spacing-xs);
+}
+
+/* Estados de hover para dropdown */
+.theme-toggle--dropdown .theme-toggle__option {
+  justify-content: flex-start;
+  border-radius: 0;
+  margin: 0;
+}
+
+.theme-toggle--dropdown .theme-toggle__option:first-child {
+  border-top-left-radius: var(--border-radius-sm);
+  border-top-right-radius: var(--border-radius-sm);
+}
+
+.theme-toggle--dropdown .theme-toggle__option:last-child {
+  border-bottom-left-radius: var(--border-radius-sm);
+  border-bottom-right-radius: var(--border-radius-sm);
+}
+
+/* Animações */
+.theme-toggle__option {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+  .theme-toggle__title {
+    display: none;
+  }
+  
+  .theme-toggle__label {
+    display: none;
+  }
+  
+  .theme-toggle--inline .theme-toggle__options {
+    gap: var(--spacing-xs);
+  }
+}
+
+/* Dark mode específico */
+[data-theme="dark"] .theme-toggle--dropdown .theme-toggle__options {
+  background: var(--neutral-100);
+  border-color: var(--neutral-300);
+}
+
+/* Acessibilidade */
+.theme-toggle__option:focus-visible {
+  outline: 2px solid var(--primary-main);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions para mudança de tema */
+* {
+  transition: 
+    background-color var(--transition-normal),
+    color var(--transition-normal),
+    border-color var(--transition-normal);
+}

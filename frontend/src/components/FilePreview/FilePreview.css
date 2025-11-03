@@ -1,0 +1,132 @@
+.file-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Ações (botões de visualizar/baixar) */
+.file-preview .actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.file-preview .actions .btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+/* Botão de Visualizar */
+.file-preview .actions .btn-view {
+  background: #2563eb; /* azul */
+  color: white;
+  border: none;
+}
+
+.file-preview .actions .btn-view:hover {
+  background: #1d4ed8;
+}
+
+/* Botão de Download */
+.file-preview .actions .btn-download {
+  background: #10b981; /* verde */
+  color: white;
+  border: none;
+}
+
+.file-preview .actions .btn-download:hover {
+  background: #059669;
+}
+
+/* Área do preview no modal */
+.file-preview .preview-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  max-height: 80vh;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f9fafb;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.08);
+}
+
+.file-preview .preview-box iframe,
+.file-preview .preview-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: none;
+}
+.file-preview .preview-box {
+  position: relative;
+}
+
+.file-preview .loading-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(249, 250, 251, 0.8); /* leve overlay */
+  z-index: 10;
+}
+
+.file-preview .btn-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.file-preview .btn-view:hover {
+  background: #1d4ed8;
+}
+
+.file-preview .modal-actions {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.file-preview .btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #10b981;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.file-preview .btn-download:hover {
+  background: #059669;
+}
+
+.file-preview .modal-header-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.75rem;
+}
