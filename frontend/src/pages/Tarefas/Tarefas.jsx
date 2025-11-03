@@ -20,37 +20,34 @@ const Tarefas = () => {
         const response = await getTarefasByPlano(idPlano);
         console.log("📦 Resposta da API:", response);
 
-        const dados = response.data;
-        if (!dados || dados.length === 0) {
-          console.warn("⚠️ Nenhuma tarefa encontrada!");
+        // ✅ Garante que sempre extraímos corretamente o array
+        const dados = Array.isArray(response)
+          ? response
+          : Array.isArray(response?.data)
+          ? response.data
+          : [];
+
+        console.log("📋 Tarefas extraídas:", dados);
+
+        if (dados.length === 0) {
+          console.warn("⚠️ Nenhuma tarefa encontrada no array!");
           setTasks([]);
           return;
         }
-
-        console.log("📋 Tarefas recebidas:", dados);
 
         // 🧱 Agrupar tarefas por impressora
         const projetos = [...new Set(dados.map((t) => t.id_impressora))].map(
           (idImp) => {
             const tarefasImp = dados.filter((t) => t.id_impressora === idImp);
-            const start = new Date(
-              Math.min(...tarefasImp.map((t) => new Date(t.hora_inicio)))
-            );
-            const end = new Date(
-              Math.max(...tarefasImp.map((t) => new Date(t.hora_fim)))
-            );
-
-            console.log(`📊 Projeto impressora-${idImp}`, {
-              start,
-              end,
-              tarefasImp,
-            });
-
             return {
               id: `impressora-${idImp}`,
               name: `Impressora ${tarefasImp[0]?.impressora?.nome || idImp}`,
-              start,
-              end,
+              start: new Date(
+                Math.min(...tarefasImp.map((t) => new Date(t.hora_inicio)))
+              ),
+              end: new Date(
+                Math.max(...tarefasImp.map((t) => new Date(t.hora_fim)))
+              ),
               progress: 100,
               type: "project",
             };
@@ -58,30 +55,18 @@ const Tarefas = () => {
         );
 
         // 🔹 Criar tarefas individuais
-        const tarefasFormatadas = dados.map((tarefa) => {
-          const start = new Date(tarefa.hora_inicio);
-          const end = new Date(tarefa.hora_fim);
-
-          console.log(`🧩 Tarefa ${tarefa.id_tarefa}`, { start, end });
-
-          return {
-            id: String(tarefa.id_tarefa),
-            name: `Placa ${tarefa.placa?.id_placa} (${tarefa.impressora?.nome})`,
-            start,
-            end,
-            progress: 100,
-            type: "task",
-            project: `impressora-${tarefa.id_impressora}`,
-          };
-        });
+        const tarefasFormatadas = dados.map((tarefa) => ({
+          id: String(tarefa.id_tarefa),
+          name: `Placa ${tarefa.placa?.id_placa} (${tarefa.impressora?.nome})`,
+          start: new Date(tarefa.hora_inicio),
+          end: new Date(tarefa.hora_fim),
+          progress: 100,
+          type: "task",
+          project: `impressora-${tarefa.id_impressora}`,
+        }));
 
         const tasksFinal = [...projetos, ...tarefasFormatadas];
         console.log("✅ Tasks finais formatadas:", tasksFinal);
-
-        // 🧠 Validação final
-        if (tasksFinal.some((t) => isNaN(t.start) || isNaN(t.end))) {
-          console.error("🚨 Erro: há datas inválidas no formato final!");
-        }
 
         setTasks(tasksFinal);
       } catch (error) {
